@@ -125,6 +125,7 @@ const ServicesSection = () => {
   ];
 
   const allCourses = [
+    // Security Training Courses
     {
       name: "Grade EDC",
       duration: "3 Weeks",
@@ -166,7 +167,73 @@ const ServicesSection = () => {
       ],
     },
     {
-      name: "Handgun Training",
+      name: "Grade E",
+      duration: "5 Days",
+      price: "R800",
+      category: "Security Training",
+      type: "security",
+      icon: <Shield className="w-5 h-5" />,
+      features: [
+        "Basic Security Grade",
+        "Quick Certification",
+        "Entry Level",
+      ],
+    },
+    {
+      name: "Grade D",
+      duration: "5 Days",
+      price: "R850",
+      category: "Security Training",
+      type: "security",
+      icon: <Shield className="w-5 h-5" />,
+      features: [
+        "Security Grade D",
+        "Professional Training",
+        "PSIRA Approved",
+      ],
+    },
+    {
+      name: "Grade C",
+      duration: "5 Days",
+      price: "R900",
+      category: "Security Training",
+      type: "security",
+      icon: <Shield className="w-5 h-5" />,
+      features: [
+        "Security Grade C",
+        "Intermediate Level",
+        "Career Advancement",
+      ],
+    },
+    {
+      name: "Grade B",
+      duration: "5 Days",
+      price: "R1,300",
+      category: "Security Training",
+      type: "security",
+      icon: <Shield className="w-5 h-5" />,
+      features: [
+        "Security Grade B",
+        "Advanced Training",
+        "Leadership Skills",
+      ],
+    },
+    {
+      name: "Grade A",
+      duration: "1 Week",
+      price: "R1,400",
+      category: "Security Training",
+      type: "security",
+      icon: <Shield className="w-5 h-5" />,
+      features: [
+        "Highest Security Grade",
+        "Management Level",
+        "Expert Certification",
+      ],
+    },
+    // Firearm Training Courses
+    {
+      name: "Hand Gun",
       duration: "3 Days",
       price: "R2,500",
       category: "Firearm Training",
@@ -175,7 +242,7 @@ const ServicesSection = () => {
       features: ["Safety Protocols", "Marksmanship", "Legal Requirements"],
     },
     {
-      name: "Shotgun Training",
+      name: "Shotgun",
       duration: "3 Days",
       price: "R2,500",
       category: "Firearm Training",
@@ -184,7 +251,7 @@ const ServicesSection = () => {
       features: ["Weapon Handling", "Maintenance", "Practical Shooting"],
     },
     {
-      name: "Rifle Training",
+      name: "Rifle",
       duration: "3 Days",
       price: "R2,500",
       category: "Firearm Training",
@@ -193,7 +260,7 @@ const ServicesSection = () => {
       features: ["Precision Shooting", "Range Safety", "Equipment Care"],
     },
     {
-      name: "Combined Package",
+      name: "Hand Gun, Shotgun & Rifle",
       duration: "5 Days",
       price: "R5,500",
       category: "Firearm Training",
@@ -203,7 +270,26 @@ const ServicesSection = () => {
       isPopular: true,
     },
     {
-      name: "Instructor Course",
+      name: "Any 2 Fire Arms",
+      duration: "4 Days",
+      price: "R4,500",
+      category: "Firearm Training",
+      type: "firearm",
+      icon: <Target className="w-5 h-5" />,
+      features: ["Choose Any Two", "Flexible Training", "Cost Effective"],
+    },
+    {
+      name: "Armed Reaction",
+      duration: "Specialized",
+      price: "R2,000",
+      category: "Firearm Training",
+      type: "firearm",
+      icon: <Target className="w-5 h-5" />,
+      features: ["Tactical Training", "Emergency Response", "Professional Skills"],
+    },
+    // Special Courses
+    {
+      name: "Instructor",
       duration: "Intensive",
       price: "R5,500",
       category: "Special Courses",
@@ -216,7 +302,7 @@ const ServicesSection = () => {
       ],
     },
     {
-      name: "Facilitator Training",
+      name: "Facilitator",
       duration: "Professional",
       price: "R3,500",
       category: "Special Courses",
@@ -228,6 +314,33 @@ const ServicesSection = () => {
         "Training Delivery",
       ],
     },
+    {
+      name: "Assessor",
+      duration: "Specialized",
+      price: "R3,500",
+      category: "Special Courses",
+      type: "special",
+      icon: <Award className="w-5 h-5" />,
+      features: [
+        "Evaluation Techniques",
+        "Standards Compliance",
+        "Quality Assurance",
+      ],
+    },
+    {
+      name: "Moderator",
+      duration: "Advanced",
+      price: "R3,500",
+      category: "Special Courses",
+      type: "special",
+      icon: <Award className="w-5 h-5" />,
+      features: [
+        "Quality Control",
+        "Standards Verification",
+        "Process Management",
+      ],
+    },
+    // PSIRA Services
     {
       name: "PSIRA Registration",
       duration: "Fast Track",
