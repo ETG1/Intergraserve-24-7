@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Security Academy Color Palette - Inspired by Logo */
+    --background: 0 0% 100%;
+    --foreground: 210 20% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 20% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 20% 15%;
+
+    /* Primary: Deep Security Blue */
+    --primary: 210 100% 25%;
+    --primary-foreground: 0 0% 98%;
+
+    /* Secondary: Professional Gray */
+    --secondary: 210 10% 95%;
+    --secondary-foreground: 210 20% 15%;
+
+    /* Muted: Light Gray */
+    --muted: 210 10% 96%;
+    --muted-foreground: 210 10% 45%;
+
+    /* Accent: Security Gold/Orange */
+    --accent: 35 100% 50%;
+    --accent-foreground: 210 20% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 10% 90%;
+    --input: 210 10% 90%;
+    --ring: 210 100% 25%;
+    --radius: 0.75rem;
+
+    /* Custom Variables for Security Theme */
+    --gradient-primary: linear-gradient(135deg, hsl(210, 100%, 25%) 0%, hsl(210, 100%, 35%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(210, 10%, 98%) 0%, hsl(210, 10%, 94%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(35, 100%, 50%) 0%, hsl(35, 100%, 60%) 100%);
+    --shadow-soft: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-medium: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-large: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  }
+
+  .dark {
+    /* Dark Mode: Security Professional */
+    --background: 210 30% 8%;
+    --foreground: 210 10% 95%;
+    --card: 210 30% 8%;
+    --card-foreground: 210 10% 95%;
+    --popover: 210 30% 8%;
+    --popover-foreground: 210 10% 95%;
+
+    /* Primary: Bright Security Blue for Dark Mode */
+    --primary: 210 100% 60%;
+    --primary-foreground: 210 30% 8%;
+
+    /* Secondary: Dark Professional Gray */
+    --secondary: 210 20% 15%;
+    --secondary-foreground: 210 10% 95%;
+
+    /* Muted: Medium Gray */
+    --muted: 210 20% 15%;
+    --muted-foreground: 210 10% 65%;
+
+    /* Accent: Security Gold/Orange */
+    --accent: 35 100% 60%;
+    --accent-foreground: 210 30% 8%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 10% 95%;
+    --border: 210 20% 15%;
+    --input: 210 20% 15%;
+    --ring: 210 100% 60%;
+
+    /* Dark Mode Custom Variables */
+    --gradient-primary: linear-gradient(135deg, hsl(210, 100%, 60%) 0%, hsl(210, 100%, 70%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(210, 30%, 8%) 0%, hsl(210, 20%, 15%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(35, 100%, 60%) 0%, hsl(35, 100%, 70%) 100%);
+    --shadow-soft: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+    --shadow-medium: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+    --shadow-large: 0 25px 50px -12px rgb(0 0 0 / 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+@layer components {
+  /* Modern Glass Effect */
+  .glass {
+    @apply backdrop-blur-xl bg-white/10 border border-white/20;
+  }
+
+  .glass-dark {
+    @apply backdrop-blur-xl bg-black/10 border border-white/10;
+  }
+
+  /* Modern Gradient Backgrounds */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  /* Modern Shadows */
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-large {
+    box-shadow: var(--shadow-large);
+  }
+
+  /* Modern Button Styles */
+  .btn-modern {
+    @apply relative overflow-hidden rounded-xl px-6 py-3 font-medium transition-all duration-300;
+    @apply before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent;
+    @apply before:translate-x-[-100%] before:transition-transform before:duration-700;
+    @apply hover:before:translate-x-[100%];
+  }
+
+  /* Modern Card Styles */
+  .card-modern {
+    @apply rounded-2xl border border-border/50 bg-card/80 backdrop-blur-sm shadow-soft;
+    @apply transition-all duration-300 hover:shadow-medium hover:scale-[1.02];
+  }
+
+  /* Modern Input Styles */
+  .input-modern {
+    @apply rounded-xl border-2 border-border/50 bg-background/50 backdrop-blur-sm;
+    @apply transition-all duration-300 focus:border-primary focus:bg-background;
+  }
+}
