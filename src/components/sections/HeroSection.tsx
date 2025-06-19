@@ -53,7 +53,7 @@ export default function HeroSection({
               className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-white leading-none mb-6 "
             >
               <span className="block ">INTEGRASERVE</span>
-              <span className="block flex items-center">SECURITY TRAINING ACADEMY</span>
+              <span className="block items-center">SECURITY TRAINING ACADEMY</span>
             </motion.h1>
 
             {/* Tagline - Security Academy focused */}
