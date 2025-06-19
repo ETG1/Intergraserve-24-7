@@ -2,188 +2,171 @@
 
 import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Award, Users, Star } from "lucide-react";
+import { CheckCircle, Target, BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface HeroSectionProps {
-  title?: string;
-  subtitle?: string;
-  description?: string;
-  ctaText?: string;
   ctaLink?: string;
-  backgroundImage?: string;
 }
 
 export default function HeroSection({
-  title = "IntegraServe 24/7",
-  subtitle = "Professional Security Training",
-  description = "Elevate your career with industry-recognized certifications and hands-on experience from certified instructors.",
-  ctaText = "Start Your Journey",
   ctaLink = "#services",
-  backgroundImage = "https://images.unsplash.com/photo-1582139329536-e7284fece509?w=1920&q=80",
 }: HeroSectionProps) {
   const [scrollY, setScrollY] = useState(0);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
 
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("mousemove", handleMouseMove, { passive: true });
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 dark:from-slate-900 dark:via-blue-950 dark:to-slate-900">
-      {/* Interactive Background Elements */}
+    <section className="relative min-h-screen w-full overflow-hidden">
+      {/* Full-width Background Image - Exact firearmtrainers.co.za style */}
       <div className="absolute inset-0">
-        {/* Animated Gradient Orbs */}
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"
-          animate={{
-            x: mousePosition.x * 0.02,
-            y: mousePosition.y * 0.02,
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            x: { type: "spring", stiffness: 50 },
-            y: { type: "spring", stiffness: 50 },
-            scale: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://ik.imagekit.io/6ywhgwsgk/int247/in.png?updatedAt=1750224159570')`,
+            transform: `translateY(${scrollY * 0.3}px)`,
           }}
         />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-emerald-400/20 to-blue-400/20 rounded-full blur-3xl"
-          animate={{
-            x: mousePosition.x * -0.02,
-            y: mousePosition.y * -0.02,
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            x: { type: "spring", stiffness: 50 },
-            y: { type: "spring", stiffness: 50 },
-            scale: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 },
-          }}
-        />
+        {/* Clean overlay - matching firearmtrainers.co.za */}
+        <div className="absolute inset-0 bg-black/60" />
+      </div>
 
-        {/* Geometric Patterns */}
-        <div className="absolute inset-0 opacity-5 dark:opacity-10">
-          <div className="absolute top-20 left-20 w-32 h-32 border border-primary/20 rounded-full animate-spin" style={{ animationDuration: '20s' }} />
-          <div className="absolute bottom-20 right-20 w-24 h-24 border border-primary/20 rounded-lg animate-pulse" />
-          <div className="absolute top-1/2 left-10 w-16 h-16 border border-primary/20 rotate-45 animate-bounce" style={{ animationDuration: '3s' }} />
+      {/* Content Container - Exact firearmtrainers.co.za Layout */}
+      <div className="relative z-10 flex min-h-screen w-full items-center">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="max-w-2xl">
+            {/* Main Title - Security Training Academy */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-white leading-none mb-6 "
+            >
+              <span className="block ">INTEGRASERVE</span>
+              <span className="block flex items-center">SECURITY TRAINING ACADEMY</span>
+            </motion.h1>
+
+            {/* Tagline - Security Academy focused */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-xl text-white/90 mb-8 font-medium"
+            >
+              PSIRA Certified Training • Expert Instructors • Career Ready
+            </motion.p>
+
+            {/* CTA Buttons  */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <Button
+                size="lg"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-base font-bold uppercase tracking-wide transition-all duration-300"
+                onClick={() =>
+                  document
+                    .querySelector(ctaLink)
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+              >
+                VIEW COURSES
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-2 border-white bg-transparent hover:bg-white hover:text-black text-white px-8 py-4 text-base font-bold uppercase tracking-wide transition-all duration-300"
+              >
+                CONTACT US
+              </Button>
+            </motion.div>
+          </div>
         </div>
       </div>
 
-      {/* Content Container */}
-      <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-4 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-6xl mx-auto"
-        >
-          {/* Subtitle Badge */}
+      {/* Process Steps Section - Clean design */}
+      <div className="relative z-10 bg-gray-50 py-20">
+        <div className="container mx-auto px-6 lg:px-12">
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-block mb-8"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
           >
-            <span className="inline-flex items-center gap-2 px-6 py-3 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary backdrop-blur-sm">
-              <Shield className="w-4 h-4" />
-              {subtitle}
-            </span>
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight">
+              HOW TO OBTAIN YOUR SECURITY LICENSE
+            </h2>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              Follow our simple 3-step process to get certified
+            </p>
           </motion.div>
 
-          {/* Main Title */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mb-6 text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight"
-          >
-            <span className="bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent leading-tight">
-              {title}
-            </span>
-            <br />
-            <span className="text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-              Security Academy
-            </span>
-          </motion.h1>
-
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mx-auto mb-12 max-w-2xl text-xl text-muted-foreground leading-relaxed"
-          >
-            {description}
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
-          >
-            <Button
-              size="lg"
-              className="btn-modern gradient-primary text-white px-8 py-4 text-lg font-semibold shadow-large hover:shadow-primary/25"
-              onClick={() =>
-                document
-                  .querySelector(ctaLink)
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
+          <div className="grid md:grid-cols-3 gap-12">
+            {/* Step 1 */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="text-center group"
             >
-              {ctaText}
-              <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-2 border-border bg-background/50 hover:bg-background px-8 py-4 text-lg font-semibold rounded-xl backdrop-blur-sm transition-all duration-300"
-            >
-              Learn More
-            </Button>
-          </motion.div>
+              <div className="w-24 h-24 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <BookOpen className="w-12 h-12 text-white" />
+              </div>
+              <h3 className="text-2xl font-black text-slate-900 mb-4 uppercase tracking-wide">PROFESSIONAL TRAINING</h3>
+              <p className="text-slate-600 leading-relaxed text-lg">
+                Complete our comprehensive security training program with certified instructors and hands-on experience.
+              </p>
+            </motion.div>
 
-          {/* Stats/Features */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
-          >
-            {[
-              { icon: Award, label: "PSIRA Certified", value: "100%" },
-              { icon: Users, label: "Students Trained", value: "2000+" },
-              { icon: Star, label: "Success Rate", value: "98%" },
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
-                className="card-modern p-6 text-center"
-              >
-                <stat.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-                <div className="text-2xl font-bold text-foreground mb-1">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
+            {/* Step 2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-center group"
+            >
+              <div className="w-24 h-24 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Target className="w-12 h-12 text-white" />
+              </div>
+              <h3 className="text-2xl font-black text-slate-900 mb-4 uppercase tracking-wide">COMPETENCY ASSESSMENT</h3>
+              <p className="text-slate-600 leading-relaxed text-lg">
+                Pass our rigorous competency assessments and practical evaluations to demonstrate your skills.
+              </p>
+            </motion.div>
+
+            {/* Step 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="text-center group"
+            >
+              <div className="w-24 h-24 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <CheckCircle className="w-12 h-12 text-white" />
+              </div>
+              <h3 className="text-2xl font-black text-slate-900 mb-4 uppercase tracking-wide">PSIRA LICENSE</h3>
+              <p className="text-slate-600 leading-relaxed text-lg">
+                Receive your official PSIRA certification and start your career in the security industry.
+              </p>
+            </motion.div>
+          </div>
+        </div>
       </div>
 
       {/* Modern Scroll Indicator */}
@@ -191,12 +174,12 @@ export default function HeroSection({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2 text-muted-foreground"
+          className="flex flex-col items-center gap-2 text-slate-300"
         >
           <span className="text-xs font-medium">Scroll to explore</span>
           <div className="w-6 h-10 border-2 border-current rounded-full flex justify-center">

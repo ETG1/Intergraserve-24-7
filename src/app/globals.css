@@ -173,4 +173,45 @@
     @apply rounded-xl border-2 border-border/50 bg-background/50 backdrop-blur-sm;
     @apply transition-all duration-300 focus:border-primary focus:bg-background;
   }
+
+  /* Crosshair Styles */
+  .crosshair-active {
+    cursor: none !important;
+  }
+
+  .crosshair-active * {
+    cursor: none !important;
+  }
+
+  /* Enhanced button and link styles for crosshair interaction */
+  .crosshair-active button,
+  .crosshair-active a,
+  .crosshair-active [role="button"],
+  .crosshair-active .cursor-pointer {
+    @apply transition-all duration-200;
+  }
+
+  .crosshair-active button:hover,
+  .crosshair-active a:hover,
+  .crosshair-active [role="button"]:hover,
+  .crosshair-active .cursor-pointer:hover {
+    @apply transform scale-105;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+    border: 1px solid rgba(0, 255, 0, 0.5);
+  }
+
+  /* Tactical crosshair styling */
+  .tactical-crosshair {
+    filter: drop-shadow(0 0 10px rgba(0, 255, 0, 0.8));
+  }
+
+  /* Flicker animation for crosshair */
+  @keyframes crosshair-flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .crosshair-flicker {
+    animation: crosshair-flicker 0.1s infinite;
+  }
 }

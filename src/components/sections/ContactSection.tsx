@@ -5,7 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail, Send, Clock } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface ContactSectionProps {
   className?: string;
@@ -13,15 +14,28 @@ interface ContactSectionProps {
 
 const ContactSection = ({ className = "" }: ContactSectionProps) => {
   return (
-    <section id="contact" className={`py-16 bg-background ${className}`}>
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-2">Contact Us</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Get in touch with our team for inquiries about our security and
-            firearm training courses.
+    <section id="contact" className={`py-24 bg-background ${className}`}>
+      <div className="container mx-auto px-4 lg:px-8">
+        {/* Header - Inspired by firearmtrainers.co.za */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <div className="inline-block mb-6">
+            <span className="px-6 py-3 bg-primary/10 border border-primary/20 rounded-full text-sm font-semibold text-primary backdrop-blur-sm uppercase tracking-wider">
+              Get in Touch
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+            Contact Us
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Ready to start your security training journey? Get in touch with our expert team
+            for inquiries about our PSIRA certified courses and professional training programs.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Contact Information */}

@@ -1,5 +1,6 @@
 import { TempoInit } from "@/components/tempo-init";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { CrosshairProvider } from "@/components/providers/crosshair-provider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
@@ -63,8 +64,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
-          <TempoInit />
+          <CrosshairProvider>
+            {children}
+            <TempoInit />
+          </CrosshairProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -59,10 +59,10 @@ const Navbar = ({ className = "" }: NavbarProps) => {
               className="flex items-center space-x-3"
             >
               <div className="relative">
-                <Shield className="h-8 w-8 text-primary" />
-                <div className="absolute inset-0 bg-primary/20 rounded-full blur-lg group-hover:bg-primary/30 transition-colors" />
+                <Shield className="h-8 w-8 text-blue-500" />
+                <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-lg group-hover:bg-amber-500/30 transition-colors" />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+              <span className="text-xl font-extrabold bg-gradient-to-r from-blue-500 to-amber-500 bg-clip-text text-transparent">
                 IntegraServe 24/7
               </span>
             </motion.div>
@@ -79,11 +79,11 @@ const Navbar = ({ className = "" }: NavbarProps) => {
               >
                 <Link
                   href={link.href}
-                  className="relative px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors group"
+                  className="relative px-4 py-2 text-sm font-semibold text-foreground/80 hover:text-blue-500 transition-colors group"
                 >
                   {link.label}
                   <motion.span
-                    className="absolute bottom-0 left-0 h-0.5 bg-primary"
+                    className="absolute bottom-0 left-0 h-0.5 bg-amber-500"
                     initial={{ width: 0 }}
                     whileHover={{ width: "100%" }}
                     transition={{ duration: 0.3 }}
@@ -111,7 +111,7 @@ const Navbar = ({ className = "" }: NavbarProps) => {
             >
               <Button
                 size="sm"
-                className="btn-modern gradient-primary text-white px-6 py-2 text-sm font-medium"
+                className="btn-modern bg-gradient-to-r from-blue-500 to-amber-500 text-white px-6 py-2 text-sm font-semibold hover:from-blue-600 hover:to-amber-600"
               >
                 Get Started
               </Button>
@@ -186,7 +186,7 @@ const Navbar = ({ className = "" }: NavbarProps) => {
                   className="pt-4"
                 >
                   <Button
-                    className="w-full btn-modern gradient-primary text-white py-3 text-lg font-medium"
+                    className="w-full btn-modern bg-gradient-to-r from-blue-500 to-amber-500 text-white py-3 text-lg font-semibold hover:from-blue-600 hover:to-amber-600"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Get Started
