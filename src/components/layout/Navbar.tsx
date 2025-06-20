@@ -58,11 +58,14 @@ const Navbar = ({ className = "" }: NavbarProps) => {
               whileTap={{ scale: 0.95 }}
               className="flex items-center space-x-3"
             >
-              <div className="relative">
-                <Shield className="h-8 w-8 text-blue-500" />
-                <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-lg group-hover:bg-amber-500/30 transition-colors" />
+              <div className="relative flex items-center">
+                <img
+                  src="/images/logo.png"
+                  alt="IntegraServe 24/7 Logo"
+                  className="h-10 w-auto object-contain drop-shadow-md"
+                />
               </div>
-              <span className="text-xl font-extrabold bg-gradient-to-r from-blue-500 to-amber-500 bg-clip-text text-transparent">
+              <span className="text-xl font-extrabold text-foreground">
                 IntegraServe 24/7
               </span>
             </motion.div>

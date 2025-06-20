@@ -44,15 +44,15 @@ export default function HeroSection({
       {/* Content Container - Exact firearmtrainers.co.za Layout */}
       <div className="relative z-10 flex min-h-screen w-full items-center">
         <div className="container mx-auto px-6 lg:px-12">
-          <div className="max-w-2xl">
+          <div className="max-w-2xl w-full flex flex-col items-center justify-center text-center">
             {/* Main Title - Security Training Academy */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-white leading-none mb-6 "
+              className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-white leading-none mb-6 font-nova text-center"
             >
-              <span className="block ">INTEGRASERVE</span>
+              <span className="block">INTEGRASERVE</span>
               <span className="block items-center">SECURITY TRAINING ACADEMY</span>
             </motion.h1>
 
@@ -61,7 +61,7 @@ export default function HeroSection({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl text-white/90 mb-8 font-medium"
+              className="text-xl text-white/90 mb-8 font-medium font-nova text-center"
             >
               PSIRA Certified Training • Expert Instructors • Career Ready
             </motion.p>
@@ -71,11 +71,11 @@ export default function HeroSection({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Button
                 size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-base font-bold uppercase tracking-wide transition-all duration-300"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-base font-bold uppercase tracking-wide transition-all duration-300 font-nova"
                 onClick={() =>
                   document
                     .querySelector(ctaLink)
@@ -87,7 +87,7 @@ export default function HeroSection({
               <Button
                 variant="outline"
                 size="lg"
-                className="border-2 border-white bg-transparent hover:bg-white hover:text-black text-white px-8 py-4 text-base font-bold uppercase tracking-wide transition-all duration-300"
+                className="border-2 border-white bg-transparent hover:bg-white hover:text-black text-white px-8 py-4 text-base font-bold uppercase tracking-wide transition-all duration-300 font-nova"
               >
                 CONTACT US
               </Button>

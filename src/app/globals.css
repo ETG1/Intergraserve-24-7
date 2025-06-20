@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Round&display=swap');
+
+@layer base {
+  .font-nova {
+    font-family: 'Nova Round', Arial, sans-serif;
+  }
+}
+@import url('https://fonts.googleapis.com/css2?family=Nova+Round&display=swap');
+
+@layer base {
+  .font-nova {
+    font-family: 'Nova Round', Arial, sans-serif;
+  }
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
